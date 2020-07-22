@@ -1,2 +1,27 @@
 # This file contains the output files that need %exclude. Full path
 # names, one per line.
+/usr/bin/opencv_perf_calib3d
+/usr/bin/opencv_perf_core
+/usr/bin/opencv_perf_dnn
+/usr/bin/opencv_perf_features2d
+/usr/bin/opencv_perf_imgcodecs
+/usr/bin/opencv_perf_imgproc
+/usr/bin/opencv_perf_objdetect
+/usr/bin/opencv_perf_photo
+/usr/bin/opencv_perf_stitching
+/usr/bin/opencv_perf_video
+/usr/bin/opencv_perf_videoio
+/usr/bin/opencv_test_calib3d
+/usr/bin/opencv_test_core
+/usr/bin/opencv_test_dnn
+/usr/bin/opencv_test_features2d
+/usr/bin/opencv_test_flann
+/usr/bin/opencv_test_highgui
+/usr/bin/opencv_test_imgcodecs
+/usr/bin/opencv_test_imgproc
+/usr/bin/opencv_test_ml
+/usr/bin/opencv_test_objdetect
+/usr/bin/opencv_test_photo
+/usr/bin/opencv_test_stitching
+/usr/bin/opencv_test_video
+/usr/bin/opencv_test_videoio

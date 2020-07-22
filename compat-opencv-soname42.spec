@@ -5,7 +5,7 @@
 %define keepstatic 1
 Name     : compat-opencv-soname42
 Version  : 4.2.0
-Release  : 120
+Release  : 121
 URL      : https://github.com/opencv/opencv/archive/4.2.0/opencv-4.2.0.tar.gz
 Source0  : https://github.com/opencv/opencv/archive/4.2.0/opencv-4.2.0.tar.gz
 Summary  : Open Source Computer Vision Library
@@ -66,14 +66,6 @@ The examples are coded in Scala and Java.
 Anyone familiar with Java should be able to read the Scala examples.
 Please feel free to contribute code examples in Scala or Java, or any JVM language.
 
-%package extras-testing
-Summary: extras-testing components for the compat-opencv-soname42 package.
-Group: Default
-
-%description extras-testing
-extras-testing components for the compat-opencv-soname42 package.
-
-
 %package lib
 Summary: lib components for the compat-opencv-soname42 package.
 Group: Libraries
@@ -100,7 +92,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1595447673
+export SOURCE_DATE_EPOCH=1595454040
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -141,7 +133,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1595447673
+export SOURCE_DATE_EPOCH=1595454040
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/compat-opencv-soname42
 cp %{_builddir}/opencv-4.2.0/3rdparty/cpufeatures/LICENSE %{buildroot}/usr/share/package-licenses/compat-opencv-soname42/ec4468ecfe59c46406d4fc5aca1cee2a83c4d93e
@@ -165,6 +157,31 @@ pushd clr-build
 %make_install
 popd
 ## Remove excluded files
+rm -f %{buildroot}/usr/bin/opencv_perf_calib3d
+rm -f %{buildroot}/usr/bin/opencv_perf_core
+rm -f %{buildroot}/usr/bin/opencv_perf_dnn
+rm -f %{buildroot}/usr/bin/opencv_perf_features2d
+rm -f %{buildroot}/usr/bin/opencv_perf_imgcodecs
+rm -f %{buildroot}/usr/bin/opencv_perf_imgproc
+rm -f %{buildroot}/usr/bin/opencv_perf_objdetect
+rm -f %{buildroot}/usr/bin/opencv_perf_photo
+rm -f %{buildroot}/usr/bin/opencv_perf_stitching
+rm -f %{buildroot}/usr/bin/opencv_perf_video
+rm -f %{buildroot}/usr/bin/opencv_perf_videoio
+rm -f %{buildroot}/usr/bin/opencv_test_calib3d
+rm -f %{buildroot}/usr/bin/opencv_test_core
+rm -f %{buildroot}/usr/bin/opencv_test_dnn
+rm -f %{buildroot}/usr/bin/opencv_test_features2d
+rm -f %{buildroot}/usr/bin/opencv_test_flann
+rm -f %{buildroot}/usr/bin/opencv_test_highgui
+rm -f %{buildroot}/usr/bin/opencv_test_imgcodecs
+rm -f %{buildroot}/usr/bin/opencv_test_imgproc
+rm -f %{buildroot}/usr/bin/opencv_test_ml
+rm -f %{buildroot}/usr/bin/opencv_test_objdetect
+rm -f %{buildroot}/usr/bin/opencv_test_photo
+rm -f %{buildroot}/usr/bin/opencv_test_stitching
+rm -f %{buildroot}/usr/bin/opencv_test_video
+rm -f %{buildroot}/usr/bin/opencv_test_videoio
 rm -f %{buildroot}/usr/bin/opencv_annotation
 rm -f %{buildroot}/usr/bin/opencv_interactive-calibration
 rm -f %{buildroot}/usr/bin/opencv_version
@@ -752,34 +769,6 @@ rm -f %{buildroot}/usr/share/opencv4/valgrind_3rdparty.supp
 
 %files
 %defattr(-,root,root,-)
-
-%files extras-testing
-%defattr(-,root,root,-)
-/usr/bin/opencv_perf_calib3d
-/usr/bin/opencv_perf_core
-/usr/bin/opencv_perf_dnn
-/usr/bin/opencv_perf_features2d
-/usr/bin/opencv_perf_imgcodecs
-/usr/bin/opencv_perf_imgproc
-/usr/bin/opencv_perf_objdetect
-/usr/bin/opencv_perf_photo
-/usr/bin/opencv_perf_stitching
-/usr/bin/opencv_perf_video
-/usr/bin/opencv_perf_videoio
-/usr/bin/opencv_test_calib3d
-/usr/bin/opencv_test_core
-/usr/bin/opencv_test_dnn
-/usr/bin/opencv_test_features2d
-/usr/bin/opencv_test_flann
-/usr/bin/opencv_test_highgui
-/usr/bin/opencv_test_imgcodecs
-/usr/bin/opencv_test_imgproc
-/usr/bin/opencv_test_ml
-/usr/bin/opencv_test_objdetect
-/usr/bin/opencv_test_photo
-/usr/bin/opencv_test_stitching
-/usr/bin/opencv_test_video
-/usr/bin/opencv_test_videoio
 
 %files lib
 %defattr(-,root,root,-)
