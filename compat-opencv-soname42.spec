@@ -5,7 +5,7 @@
 %define keepstatic 1
 Name     : compat-opencv-soname42
 Version  : 4.2.0
-Release  : 127
+Release  : 128
 URL      : https://github.com/opencv/opencv/archive/4.2.0/opencv-4.2.0.tar.gz
 Source0  : https://github.com/opencv/opencv/archive/4.2.0/opencv-4.2.0.tar.gz
 Summary  : Open Source Computer Vision Library
@@ -92,7 +92,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1607979429
+export SOURCE_DATE_EPOCH=1608099902
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -126,14 +126,14 @@ export CXXFLAGS="$CXXFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved
 -DINSTALL_C_EXAMPLES=ON \
 -DINSTALL_PYTHON_EXAMPLES=ON \
 -DBUILD_JAVA=ON \
--DOPENCV_PYTHON_INSTALL_PATH=/usr/lib/python3.8/site-packages/ \
+-DOPENCV_PYTHON_INSTALL_PATH=/usr/lib/python3.9/site-packages/ \
 -DOPENCV_GENERATE_PKGCONFIG=ON \
 -DOPENCV_CONFIG_INSTALL_PATH=lib64/cmake/opencv4
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1607979429
+export SOURCE_DATE_EPOCH=1608099902
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/compat-opencv-soname42
 cp %{_builddir}/opencv-4.2.0/3rdparty/cpufeatures/LICENSE %{buildroot}/usr/share/package-licenses/compat-opencv-soname42/ec4468ecfe59c46406d4fc5aca1cee2a83c4d93e
@@ -411,14 +411,17 @@ rm -f %{buildroot}/usr/include/opencv4/opencv2/videoio/legacy/constants_c.h
 rm -f %{buildroot}/usr/include/opencv4/opencv2/videoio/registry.hpp
 rm -f %{buildroot}/usr/include/opencv4/opencv2/videoio/videoio.hpp
 rm -f %{buildroot}/usr/include/opencv4/opencv2/videoio/videoio_c.h
-rm -f %{buildroot}/usr/lib/python3.8/site-packages/cv2/__init__.py
-rm -f %{buildroot}/usr/lib/python3.8/site-packages/cv2/__pycache__/__init__.cpython-38.pyc
-rm -f %{buildroot}/usr/lib/python3.8/site-packages/cv2/__pycache__/config.cpython-38.pyc
-rm -f %{buildroot}/usr/lib/python3.8/site-packages/cv2/__pycache__/load_config_py2.cpython-38.pyc
-rm -f %{buildroot}/usr/lib/python3.8/site-packages/cv2/__pycache__/load_config_py3.cpython-38.pyc
-rm -f %{buildroot}/usr/lib/python3.8/site-packages/cv2/config.py
-rm -f %{buildroot}/usr/lib/python3.8/site-packages/cv2/load_config_py2.py
-rm -f %{buildroot}/usr/lib/python3.8/site-packages/cv2/load_config_py3.py
+rm -f %{buildroot}/usr/lib/python3.9/site-packages/cv2/__init__.py
+rm -f %{buildroot}/usr/lib/python3.9/site-packages/cv2/__pycache__/__init__.cpython-39.pyc
+rm -f %{buildroot}/usr/lib/python3.9/site-packages/cv2/__pycache__/config-3.9.cpython-39.pyc
+rm -f %{buildroot}/usr/lib/python3.9/site-packages/cv2/__pycache__/config.cpython-39.pyc
+rm -f %{buildroot}/usr/lib/python3.9/site-packages/cv2/__pycache__/load_config_py2.cpython-39.pyc
+rm -f %{buildroot}/usr/lib/python3.9/site-packages/cv2/__pycache__/load_config_py3.cpython-39.pyc
+rm -f %{buildroot}/usr/lib/python3.9/site-packages/cv2/config-3.9.py
+rm -f %{buildroot}/usr/lib/python3.9/site-packages/cv2/config.py
+rm -f %{buildroot}/usr/lib/python3.9/site-packages/cv2/load_config_py2.py
+rm -f %{buildroot}/usr/lib/python3.9/site-packages/cv2/load_config_py3.py
+rm -f %{buildroot}/usr/lib/python3.9/site-packages/cv2/python-3.9/cv2.cpython-39-x86_64-linux-gnu.so
 rm -f %{buildroot}/usr/lib64/cmake/opencv4/OpenCVConfig-version.cmake
 rm -f %{buildroot}/usr/lib64/cmake/opencv4/OpenCVConfig.cmake
 rm -f %{buildroot}/usr/lib64/cmake/opencv4/OpenCVModules-releasewithdebinfo.cmake
